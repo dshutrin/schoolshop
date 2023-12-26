@@ -1,0 +1,27 @@
+@media screen and (max-width: 430px) {
+	form {
+		display: block;
+		justify-content: center;
+		text-align: center;
+	}
+
+	form > input {
+		padding: 10px;
+		margin: 0;
+		width: 100%;
+		border-radius: 15px;
+		border: 1px solid var(--color-dark-variant);
+		box-shadow: var(--box-shadow);
+	}
+
+	form > button {
+		width: 25%;
+		background-color: var(--color-button);
+		color: var(--color-white);
+		padding: 10px;
+		border: 0px;
+		border-radius: var(--button-radius);
+		margin-top: 5px;
+	}
+
+}

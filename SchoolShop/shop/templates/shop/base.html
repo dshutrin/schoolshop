@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	<link rel="stylesheet" href="{% static 'css/variables.css' %}">
+
+	{% block head %}
+	{% endblock %}
+
+	<title>Dashboard</title>
+</head>
+<body>
+	<div class="container">
+
+		<aside>
+			<div class="sidebar">
+				<a href="/" id="home">
+					<span class="material-symbols-outlined">
+						home
+					</span>
+					<h3>Главная</h3>
+				</a>
+
+				<a href="/categoryes" id="cats">
+					<span class="material-symbols-outlined">
+						mail
+					</span>
+					<h3>Категории</h3>
+				</a>
+
+				<a href="/admin_panel" id="admin_panel">
+					<span class="material-symbols-outlined">
+						insights
+					</span>
+					<h3>Панель администратора</h3>
+				</a>
+
+				{% if request.user.is_authenticated %}
+				<a href="#" id="profile">
+					<span class="material-symbols-outlined">
+						person
+					</span>
+					<h3>Профиль</h3>
+				</a>
+				{% endif %}
+			</div>
+		</aside>
+
+		<main>
+			{% block content %}
+			{% endblock %}
+		</main>
+
+	</div>
+</body>
+</html>

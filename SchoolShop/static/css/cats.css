@@ -1,0 +1,106 @@
+@media screen and (max-width: 430px) {
+	.main_cat_container {
+		background-color: var(--fix-color);
+	}
+
+	.cats_title {
+		background-color: var(--background-color);
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.container {
+		display: grid;
+		grid-template-columns: 12vw auto;
+		width: 96%;
+		margin: 0 auto;
+	}
+
+	aside {
+		display: flex;
+		position: sticky;
+		top: 1.5rem;
+		width: 12vw;
+		height: 90vh;
+		background-color: var(--color-white);
+		border-radius: 15px;
+		border: none;
+		padding: 0;
+	}
+
+	aside .sidebar {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		border-radius: 15px;
+		justify-content: start;
+		transition: all 0.3s ease;
+		box-shadow: var(--box-shadow);
+
+		box-sizing: border-box;
+	}
+
+	aside .sidebar:hover {
+		box-shadow: none;
+	}
+
+	aside .sidebar a{
+		display: flex;
+		height: 3.7rem;
+		position: relative;
+		margin-left: 1rem;
+		gap: 1rem;
+		width: 100%;
+		transition: all 0.3s ease;
+	}
+
+	aside .sidebar a span {
+		font-size: 1.6rem;
+		transition: all 0.3s ease;
+	}
+
+	aside .close {
+	  display: none;
+	  top: 10px;
+	  padding-left: 0.5rem;
+	}
+
+	aside .sidebar a h3 {
+		max-width: 50%;
+		transition: all 0.3s ease;
+	}
+
+	aside .sidebar a.active {
+		border-radius: 15px;
+		background-color: var(--color-light);
+		width: 100%;
+		margin: 0;
+		color: var(--color-primary);
+	}
+
+	aside .sidebar a.active::before {
+		content: '';
+		width: 6px;
+		height: 18px;
+		background-color: var(--color-primary);
+	}
+
+	aside .sidebar a:hover {
+		color: var(--color-primary);
+		transition: all 0.3s ease;
+	}
+
+	aside .sidebar a:hover span{
+		padding-left: 0.6rem;
+	}
+
+	aside .sidebar a {
+		transition: all 0.3s ease;
+	}
+
+	.sidebar > a > h3 {
+		display: block;
+	}
+
+
+}

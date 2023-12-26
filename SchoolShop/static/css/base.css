@@ -1,0 +1,519 @@
+* {
+	padding: 0;
+	margin: 0;
+	max-width: 100vw;
+	outline: 0;
+	appearance: 0;
+	text-decoration: none;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+a,
+a:hover,
+a.active {
+	color: var(--link-color);
+}
+
+.card:hover {
+	box-shadow: var(--card-box-shadow);
+}
+
+body {
+	font-size: 0.88rem;
+	user-select: none;
+	padding-bottom: 7vh;
+	background-color: var(--color-background);
+}
+
+.container {
+	height: 100vh;
+	max-width: 100%;
+}
+
+@media screen and (max-width: 430px) {
+
+	/* Верхнее меню */
+
+	aside {
+		display: flex;
+		padding: 10px;
+
+		border-bottom: 2px solid var(--color-dark-variant);
+	}
+
+	.material-symbols-outlined {
+		font-size: 30px;
+	}
+
+	.sidebar {
+		width: 100%;
+		display: grid;
+		text-align: center;
+		justify-content: center;
+		grid-template-columns: 25% 25% 25% 25%;
+	}
+
+	.sidebar > a > h3 {
+		display: none;
+	}
+
+	/* Верхнее меню */
+
+
+	/* Основной блок */
+	main {
+		display: grid;
+		grid-template-columns: 100%;
+		width: 100%;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top: 20px;
+		padding-bottom: 3vh;
+	}
+
+	.main_cat_container {
+		background-color: var(--fix-color);
+	}
+
+	.cats_title {
+		background-color: var(--background-color);
+	}
+	/* Основной блок */
+
+
+	/* форма */
+
+	form {
+		display: block;
+		justify-content: center;
+		text-align: center;
+	}
+
+	form > input {
+		padding: 10px;
+		margin: 0;
+		width: 100%;
+		border-radius: 15px;
+		border: 1px solid var(--color-dark-variant);
+		box-shadow: var(--box-shadow);
+	}
+
+	form > button {
+		width: 25%;
+		background-color: var(--color-button);
+		color: var(--color-white);
+		padding: 10px;
+		border: 0px;
+		border-radius: var(--button-radius);
+		margin-top: 5px;
+	}
+
+	/* форма */
+
+	/* Скрытие популярных товаров */
+	.right_block {
+		display: none;
+	}
+	/* Скрытие популярных товаров */
+
+	/* Блок с товарами */
+	.main_container {
+		margin-top: 15px;
+	}
+
+	.main_block_handler {
+		margin-top: 1rem;
+	}
+
+	.main_block {
+		display: grid;
+		grid-template-columns: 100%;
+		padding-bottom: 20vh;
+
+	}
+
+	.results {
+		display: grid;
+		grid-template-columns: 100%;
+		padding-bottom: 5vh;
+	}
+	/* Блок с товарами */
+
+	img {
+		max-width: 90%;
+		max-height: 350px;
+		border-radius: var(--card-border-radius);
+	}
+
+	table, tbody, td, tr {
+		text-align: center;
+		border: none;
+		width: 100%;
+		max-height: 450px;
+		border-radius: var(--card-border-radius);
+	}
+
+	.card {
+		text-align: center;
+		border-radius: var(--card-border-radius);
+		box-shadow: var(--box-shadow);
+		max-height: 450px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		font: 800 14px "Poppins";
+		transition: all 0.3s ease;
+		color: var(--link-color);
+		padding-bottom: 1rem;
+		background-color: var(--white-gradient);
+		justify-content: center;
+	}
+
+	.description {
+		margin-top: 10rem;
+	}
+
+}
+
+@media screen and (min-width: 430px) {
+	aside {
+		display: flex;
+		padding: 10px;
+		border-bottom: 2px solid var(--color-dark-variant);
+	}
+
+	.results {
+		display: grid;
+		grid-template-columns: 50% 50%;
+		padding-bottom: 5vh;
+	}
+
+	.right_block {
+		display: none;
+	}
+
+	.material-symbols-outlined {
+		font-size: 30px;
+	}
+
+	.sidebar {
+		width: 100%;
+		display: grid;
+		justify-content: center;
+		grid-template-columns: 25% 25% 25% 25%;
+	}
+
+	.sidebar > a > h3 {
+		display: none;
+	}
+
+	main {
+		display: grid;
+		grid-template-columns: 100%;
+		width: 100%;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top: 20px;
+		padding-bottom: 3vh;
+	}
+
+	form {
+		display: block;
+		justify-content: center;
+		text-align: center;
+	}
+
+	form > input {
+		padding: 10px;
+		margin: 0;
+		width: 100%;
+		border-radius: 15px;
+		border: 1px solid var(--color-dark-variant);
+		box-shadow: var(--box-shadow);
+	}
+
+	form > button {
+		width: 25%;
+		background-color: var(--color-button);
+		color: var(--color-white);
+		padding: 10px;
+		border: 0px;
+		border-radius: var(--button-radius);
+		margin-top: 5px;
+	}
+
+	.main_block {
+		display: grid;
+		grid-template-columns: 50% 50%;
+	}
+
+	img {
+		max-width: 90%;
+		max-height: 350px;
+		border-radius: var(--card-border-radius);
+	}
+
+	table, tbody, td, tr {
+		text-align: center;
+		border: none;
+		width: 100%;
+		max-height: 450px;
+		border-radius: var(--card-border-radius);
+	}
+
+	.card {
+		text-align: center;
+		border-radius: var(--card-border-radius);
+		box-shadow: var(--box-shadow);
+		max-height: 450px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		font: 800 14px "Poppins";
+		transition: all 0.3s ease;
+		color: var(--link-color);
+		padding-bottom: 1rem;
+		margin-left: 5px;
+		margin-left: 5px;
+		justify-content: center;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	aside {
+		display: flex;
+		padding: 10px;
+		border-bottom: 2px solid var(--color-dark-variant);
+	}
+
+	.results {
+		display: grid;
+		grid-template-columns: 33% 34% 33%;
+		padding-bottom: 5vh;
+	}
+
+	.right_block {
+		display: none;
+	}
+
+	.material-symbols-outlined {
+		font-size: 30px;
+	}
+
+	.sidebar {
+		width: 100%;
+		display: grid;
+		justify-content: center;
+		grid-template-columns: 25% 25% 25% 25%;
+	}
+
+	.main_block {
+		display: grid;
+		grid-template-columns: 33% 34% 33%;
+	}
+
+	.main_cat_container {
+		margin-top: 3rem;
+	}
+
+	.center-container {
+		margin-top: 3rem;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	*{
+		margin: 0;
+		padding: 0;
+		outline: 0;
+		appearance: 0;
+		border: 0;
+		text-decoration: none;
+		box-sizing: border-box;
+		font-family: "Poppins", sans-serif;
+	}
+
+
+	html {
+		font-size: 14px;
+	}
+
+	a,
+	a:hover,
+	a:active {
+		text-decoration: none;
+		color: var(--color-link);
+	}
+
+	body {
+		width: 100vw;
+		height: 100vh;
+		font-size: 0.88rem;
+		user-select: none;
+		overflow-x: hidden;
+		color: var(--color-dark);
+		background-color: var(--color-background);
+	}
+
+	.container {
+		display: grid;
+		grid-template-columns: 12vw auto;
+		width: 96%;
+		margin: 0 auto;
+	}
+
+	aside {
+		display: flex;
+		position: sticky;
+		top: 1.5rem;
+		width: 12vw;
+		height: 90vh;
+		background-color: var(--color-white);
+		border-radius: 15px;
+		border: none;
+		padding: 0;
+	}
+
+	aside .sidebar {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		border-radius: 15px;
+		justify-content: start;
+		transition: all 0.3s ease;
+		box-shadow: var(--box-shadow);
+
+		box-sizing: border-box;
+	}
+
+	aside .sidebar:hover {
+		box-shadow: none;
+	}
+
+	aside .sidebar a{
+		display: flex;
+		align-items: center;
+		height: 3.7rem;
+		position: relative;
+		margin-left: 1rem;
+		gap: 1rem;
+		width: 100%;
+		transition: all 0.3s ease;
+	}
+
+	aside .sidebar a span {
+		font-size: 1.6rem;
+		transition: all 0.3s ease;
+	}
+
+	aside .close {
+	  display: none;
+	  top: 10px;
+	  padding-left: 0.5rem;
+	}
+
+	aside .sidebar a h3 {
+		max-width: 50%;
+		transition: all 0.3s ease;
+	}
+
+	aside .sidebar a.active {
+		border-radius: 15px;
+		background-color: var(--color-light);
+		width: 100%;
+		margin: 0;
+		color: var(--color-primary);
+	}
+
+	aside .sidebar a.active::before {
+		content: '';
+		width: 6px;
+		height: 18px;
+		background-color: var(--color-primary);
+	}
+
+	aside .sidebar a:hover {
+		color: var(--color-primary);
+		transition: all 0.3s ease;
+	}
+
+	aside .sidebar a:hover span{
+		padding-left: 0.6rem;
+	}
+
+	aside .sidebar a {
+		transition: all 0.3s ease;
+	}
+
+	.sidebar > a > h3 {
+		display: block;
+	}
+
+	form {
+		display: grid;
+		grid-template-columns: 85% 15%;
+		justify-content: center;
+		text-align: center;
+	}
+
+	form > input {
+		padding: 10px;
+		margin: 0;
+		border-radius: 0;
+		width: 100%;
+		border: 1px solid var(--color-dark-variant);
+		box-shadow: var(--box-shadow);
+	}
+
+	form > button {
+		width: auto;
+		background-color: var(--color-button);
+		color: var(--color-white);
+		padding: 10px;
+		border: 0px;
+		border-radius: var(--button-radius);
+		margin: 0;
+		margin-left: 10px;
+		transition: all 0.3s ease;
+		box-shadow: var(--box-shadow);
+	}
+
+	form > button:hover {
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		box-shadow: none;
+	}
+
+	.main_block {
+		grid-template-columns: 25% 25% 25% 25%;
+	}
+
+	.right_block {
+		margin-top: 2rem;
+		display: grid;
+		max-height: 88vh;
+		text-align: center;
+		grid-template-columns: 100%;
+	}
+
+	.cards {
+		text-align: center;
+		overflow-y: scroll;
+	}
+
+	.right_block > .title > span {
+		text-align: center;
+		min-width: 100%;
+	}
+
+	.right_block > .title {
+		font-size: 20px;
+		font-weight: 900;
+		color: var(--color-dark-variant);
+	}
+
+	.main_container {
+		display: grid;
+		grid-template-columns: 85% 15%;
+	}
+}

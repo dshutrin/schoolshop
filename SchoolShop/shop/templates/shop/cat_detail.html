@@ -1,0 +1,64 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/cat_detail.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<form method="GET">
+	{{form.query}}
+	<button class="push_button" type="submit">Search</button>
+</form>
+
+<div class="main_cat_container">
+
+	<div class="center-container">
+		<div id="search_results" style="display: none;">
+			<h1>Результаты поиска:</h1>
+			<div id="results" class="main_block">
+			</div>
+		</div>
+
+		<div class="main_block_handler">
+			<h1 class="cats_title">Продукты категории {{cat_name}}</h1>
+			<div class="main_block">
+
+				{% for product in products %}
+					<a class="card" href="/product/{{product.product.id}}">
+						<table>
+							<tbody>
+							<tr>
+								<td><img src="{{product.img.image.url}}" alt=""></td>
+							</tr>
+							<tr style="padding-top: 15px;">
+								<td><span class="desc">{{product.product.name}}</span><br></td>
+							</tr>
+							<tr>
+								<td><span class="price">{{product.product.price}} ₽</span></td>
+							</tr>
+							</tbody>
+						</table>
+					</a>
+				{% endfor %}
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<input id="cat_id" type="number" value="{{cat_id}}" hidden>
+<script src="{% static 'js/search_on_cat.js' %}"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", ready);
+
+	function ready() {
+		document.getElementById("home").classList.remove("active");
+		document.getElementById("cats").classList.add("active");
+		document.getElementById("profile").classList.remove("active");
+		document.getElementById("admin_panel").classList.remove("active");
+	}
+</script>
+
+{% endblock %}

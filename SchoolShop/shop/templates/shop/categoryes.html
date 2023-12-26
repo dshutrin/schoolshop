@@ -1,0 +1,59 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block head %}
+
+	<link rel="stylesheet" href="{% static 'css/cats.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<form method="GET">
+	{{form.query}}
+	<button class="push_button" type="submit">Search</button>
+</form>
+
+<div class="main_cat_container">
+
+	<div class="center-container">
+		<div id="search_results" style="display: none;">
+			<h1>Результаты поиска:</h1>
+			<div id="results" class="main_block">
+			</div>
+		</div>
+
+		<div class="main_block_handler">
+			<h1 class="cats_title">Категории</h1>
+			<div class="main_block">
+				{% for cat in cats %}
+					<a class="card" href="/categoryes/{{cat.pk}}">
+						<table>
+							<tbody>
+								<tr>
+									<td><img src="{{cat.img.image.url}}" alt=""></td>
+								</tr>
+								<tr style="padding-top: 15px;">
+									<td><span class="desc">{{cat.cat_name}}</span><br></td>
+								</tr>
+							</tbody>
+						</table>
+					</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="{% static 'js/cats.js' %}"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", ready);
+
+	function ready() {
+		document.getElementById("home").classList.remove("active");
+		document.getElementById("cats").classList.add("active");
+		document.getElementById("profile").classList.remove("active");
+		document.getElementById("admin_panel").classList.remove("active");
+	}
+</script>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="center-container">
+	<div class="block">
+		<h1>Аналитика</h1>
+		<div class="analyse">
+
+			<div class="sales">
+				<div class="status">
+					<div class="info">
+						<h3>Всего продаж, ₽</h3>
+						<h1>65,835</h1>
+					</div>
+				</div>
+			</div>
+
+			<div class="visitors">
+				<div class="status">
+					<div class="info">
+						<h3>Посетители</h3>
+						<h1>5,035</h1>
+					</div>
+				</div>
+			</div>
+
+			<div class="sales_">
+				<div class="status">
+					<div class="info">
+						<h3>Продано товаров, шт</h3>
+						<h1>120</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	document.addEventListener("DOMContentLoaded", ready);
+
+	function ready() {
+		document.getElementById("home").classList.remove("active");
+		document.getElementById("cats").classList.remove("active");
+		document.getElementById("profile").classList.remove("active");
+		document.getElementById("admin_panel").classList.add("active");
+	}
+</script>
+{% endblock %}

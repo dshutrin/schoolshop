@@ -1,0 +1,56 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/detail_product.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+<div class="tags">
+
+	<section class="tags_section">
+
+		<a class="tag" href="/categoryes/{{product.product.category.id}}">{{product.product.category}}</a> >
+		<a class="tag" href="/product/{{product.product.id}}">{{product.product.name}}</a>
+
+	</section>
+
+</div>
+
+<div class="my-content">
+	<div class="product-container">
+		<div class="slider">
+			{% for img in product.img %}
+				<div class="image_block">
+					<img class="slider-image" src="{{img.image.url}}" alt="">
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="product-actions">
+		<h2 class="title">{{product.product.name}}</h2>
+
+		<div class="description-header">
+			<h3>Описание продукта</h3>
+			<span class="description">
+				{{product.product.description}}
+			</span>
+		</div>
+
+		<div class="buy-block">
+			<div class="left">
+				<div>
+					Цена: <span class="price">{{product.product.price}}₽</span>
+				</div>
+			</div>
+			<div class="right">
+				<a class="add_button" href="/product/{{product.product.id}}/add">Добавить в корзину</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
