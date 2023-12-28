@@ -27,3 +27,8 @@ class AuthorAdmin(admin.ModelAdmin):
 @admin.register(Detail)
 class AuthorAdmin(admin.ModelAdmin):
 	list_display = ('product', 'name', 'value')
+
+
+@admin.register(CustomUser)
+class AdminUser(admin.ModelAdmin):
+	list_display = ('username', 'email')

@@ -1,3 +1,23 @@
+create_product_card = (id, img, name, price) => {
+	return `
+	<a class="card" href="/product/${id}">
+		<table>
+			<tbody>
+				<tr>
+					<td><img src="${img}" alt=""></td>
+				</tr>
+				<tr style="padding-top: 15px;">
+					<td><span class="desc">${name}</span><br></td>
+				</tr>
+				<tr>
+					<td><span class="price">${price} ₽</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</a>
+	`
+}
+
 get_search = () => {
 	let query = document.getElementById('id_query').value
 	let cat_id = document.getElementById('cat_id').value
@@ -14,6 +34,7 @@ get_search = () => {
 
 		xhr.onload = () => {
 			let ans = xhr.response['products']
+			console.log(ans)
 
 			if (ans.length > 0){
 
@@ -21,23 +42,12 @@ get_search = () => {
 
 				for (let i=0; i<ans.length; i++){
 
-					data = data + `
-					<a class="card" href="/product/${ans[i]['id']}">
-						<table>
-							<tbody>
-							<tr>
-								<td><img src="${ans[i].img}" alt=""></td>
-							</tr>
-							<tr style="padding-top: 15px;">
-								<td><span class="desc">${ans[i].name}</span><br></td>
-							</tr>
-							<tr>
-								<td><span class="price">${ans[i].price} ₽</span></td>
-							</tr>
-							</tbody>
-						</table>
-					</a>
-					`
+					data = data + create_product_card(
+						ans[i]['id'],
+						ans[i].img,
+						ans[i].name,
+						ans[i].price
+					)
 				}
 
 				document.getElementById('results').innerHTML = data

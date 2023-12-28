@@ -1,0 +1,32 @@
+@media screen and (min-width: 1200px) {
+	.main_container {
+		display: grid;
+		grid-template-columns: 100%;
+		padding-left: 15px;
+	}
+
+	.header {
+		display: grid;
+		grid-template-columns: 50% 50%;
+	}
+
+	.left {
+		text-align: start;
+	}
+
+	.right {
+		text-align: end;
+	}
+
+	.to-trash {
+		font-size: 14px;
+		padding: 10px 15px 10px 15px;
+		border-radius: 5px;
+		background-color: var(--color-button);
+		color: var(--color-white);
+	}
+
+	.info_block {
+		margin-top: 2rem;
+	}
+}

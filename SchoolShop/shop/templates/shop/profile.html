@@ -1,0 +1,44 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="main_container">
+
+	<div class="center-container">
+		<div class="main_block_handler">
+			
+			<div class="header">
+				<div class="left">
+					<h1 class="left">Привет, {{user.username}}</h1>
+				</div>
+				<div class="right">
+					<a href="/trash" class="to-trash">Моя корзина</a>
+				</div>
+			</div>
+
+			<div class="info_block">
+				<h2>Баланс: {{request.user.balance}}₽</h2>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+
+<script>
+	document.addEventListener("DOMContentLoaded", ready);
+
+	function ready() {
+		document.getElementById("home").classList.remove("active");
+		document.getElementById("cats").classList.remove("active");
+		document.getElementById("profile").classList.add("active");
+		document.getElementById("admin_panel").classList.remove("active");
+	}
+</script>
+
+{% endblock %}

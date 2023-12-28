@@ -1,3 +1,23 @@
+create_product_card = (id, img, name, price) => {
+	return `
+	<a class="card" href="/product/${id}">
+		<table>
+			<tbody>
+				<tr>
+					<td><img src="${img}" alt=""></td>
+				</tr>
+				<tr style="padding-top: 15px;">
+					<td><span class="desc">${name}</span><br></td>
+				</tr>
+				<tr>
+					<td><span class="price">${price} ₽</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</a>
+	`
+}
+
 get_search = () => {
 	let query = document.getElementById('id_query').value
 
@@ -20,23 +40,12 @@ get_search = () => {
 
 				for (let i=0; i<ans.length; i++){
 
-					data = data + `
-					<a class="card" href="/product/${ans[i]['product']['id']}">
-						<table>
-							<tbody>
-							<tr>
-								<td><img src="${ans[i].img}" alt=""></td>
-							</tr>
-							<tr style="padding-top: 15px;">
-								<td><span class="desc">${ans[i].product.name}</span><br></td>
-							</tr>
-							<tr>
-								<td><span class="price">${ans[i].product.price} ₽</span></td>
-							</tr>
-							</tbody>
-						</table>
-					</a>
-					`
+					data = data + create_product_card(
+						ans[i]['product']['id'],
+						ans[i].img,
+						ans[i].product.name,
+						ans[i].product.price
+					)
 				}
 
 				document.getElementById('results').innerHTML = data

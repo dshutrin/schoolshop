@@ -33,6 +33,10 @@
     --subcat-shadow: 0 0.7rem 0.7rem var(--color-light);
     --card-box-shadow: 0.3rem 0.3rem 1rem 0.7rem var(--color-primary);
 
+    --blue-shadow: 0.3rem 0.3rem 1rem 0.7rem var(--color-primary);
+    --green-shadow: 0.3rem 0.3rem 1rem 0.7rem var(--color-success);
+    --red-shadow: 0.3rem 0.3rem 1rem 0.7rem var(--color-danger);
+
     --button-radius: 5px;
 }
 

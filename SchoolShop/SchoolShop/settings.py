@@ -94,6 +94,9 @@ USE_I18N = True
 USE_TZ = True
 
 
+AUTH_USER_MODEL = 'shop.CustomUser'
+
+
 STATIC_URL = 'static/'
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static/')

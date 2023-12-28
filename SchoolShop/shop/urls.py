@@ -9,6 +9,10 @@ urlpatterns = [
 	path('categoryes', category_page),
 	path('categoryes/<int:cat_id>', cat_detail),
 	path('product/<int:pid>', product_detail),
+	path('product/<int:pid>/add', add_to_trash),
+	path('profile', profile),
+	path('trash', trash),
+	path('trash/drop/<int:pid>', drop_from_trash),
 	# API
 	path('search/<str:query>', search),
 	path('search_cat/<str:query>', search_cat),

@@ -1,0 +1,65 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/trash.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="main_container">
+
+	<div class="center-container">
+
+			{% if filled %}
+			<div class="main_block_handler">
+				<div class="title">
+					<h2>Моя корзина</h2>
+				</div>
+				<div class="main_block">
+					{% for product in products %}
+					<div class="card-handler">
+						<a class="card" href="/product/{{product.product.id}}">
+							<table>
+								<tbody>
+								<tr>
+									<td><img src="{{product.img.image.url}}" alt=""></td>
+								</tr>
+								<tr>
+									<td><span class="desc">{{product.product.name}}</span><br></td>
+								</tr>
+								<tr class="last">
+									<td><span class="price">{{product.product.price}} ₽</span></td>
+								</tr>
+								</tbody>
+							</table>
+						</a>
+						<a href="/trash/drop/{{product.product.id}}" class="button-drop">
+							Удалить из корзины
+						</a>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			{% else %}
+				<div class="empty_trash">
+					<h1>Ваша корзина пуста</h1>
+					<a href="/" class="button-drop-on-empty">Перейти к каталогу</a>
+				</div>
+			{% endif %}
+	</div>
+
+</div>
+
+<script>
+	document.addEventListener("DOMContentLoaded", ready);
+
+	function ready() {
+		document.getElementById("home").classList.remove("active");
+		document.getElementById("cats").classList.remove("active");
+		document.getElementById("profile").classList.add("active");
+		document.getElementById("admin_panel").classList.remove("active");
+	}
+</script>
+
+{% endblock %}

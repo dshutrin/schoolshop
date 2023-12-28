@@ -103,3 +103,50 @@ def product_detail(request, pid):
 
 	else:
 		return HttpResponseRedirect('/')
+
+
+def profile(request):
+	if request.user.is_authenticated:
+		return render(request, 'shop/profile.html', {'user': request.user})
+	else:
+		return HttpResponseRedirect('/')
+
+
+def add_to_trash(request, pid):
+	prod = Product.objects.filter(id=pid)
+	if len(prod):
+
+		prod = prod[0]
+		request.user.trash.add(prod)
+		return HttpResponseRedirect('/trash')
+
+	else:
+		return HttpResponseRedirect('/')
+
+
+def trash(request):
+	products = []
+	all_products = [Product.objects.get(id=x) for x in request.user.trash.trash_prod_ids()]
+	products_imgs = ProductImage.objects.all()
+	for product in all_products:
+		product_img = [x for x in products_imgs if x.product == product][0]
+		products.append(ProductView(product, product_img))
+
+	filled = len(products) > 0
+
+	return render(request, 'shop/trash.html', {
+		'products': products,
+		'filled': filled
+	})
+
+
+def drop_from_trash(request, pid):
+	prod = Product.objects.filter(id=pid)
+	if len(prod):
+
+		prod = prod[0]
+		request.user.trash.remove(prod)
+		return HttpResponseRedirect('/trash')
+
+	else:
+		return HttpResponseRedirect('/')

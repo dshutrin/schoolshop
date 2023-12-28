@@ -1,0 +1,58 @@
+@media screen and (min-width: 1200px) {
+	.main_container {
+		grid-template-columns: 100%;
+	}
+
+	.main_block {
+		grid-template-columns: 20% 20% 20% 20% 20%;
+	}
+
+	.button-drop {
+		padding: 10px 15px 10px 15px;
+		font-size: 14px;
+		width: 90%;
+		background-color: var(--color-button);
+		border-radius: 5px;
+		text-align: center;
+		margin-top: 5px;
+		color: var(--color-white);
+	}
+
+	.button-drop-on-empty {
+		padding: 10px 15px 10px 15px;
+		font-size: 14px;
+		width: 90%;
+		background-color: var(--color-button);
+		border-radius: 5px;
+		text-align: center;
+		color: var(--color-white);
+	}
+
+	.button-drop:hover {
+		box-shadow: var(--box-shadow);
+		color: var(--color-white);
+	}
+
+	.card-handler {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.card {
+		height: 100%;
+	}
+
+	.empty_trash {
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	.empty-trash > h1 {
+		margin-bottom: 30px;
+	}
+}

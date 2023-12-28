@@ -1,0 +1,102 @@
+@media screen and (max-width: 430px) {
+	.analyse {
+		margin-top: 2rem;
+	}
+
+	.sales, .visitors, .sales_ {
+		width: 100%;
+		border-radius: 15px;
+		margin-bottom: 10px;
+		padding: 10px;
+	}
+
+	.sales {
+		background: var(--red-gradient);
+	}
+
+	.visitors {
+		background: var(--blue-gradient);
+	}
+
+	.sales_ {
+		background: var(--green-gradient);
+	}
+
+	.status > .info > h1 {
+		margin-top: 10px;
+	}
+}
+
+@media screen and (min-width: 430px) {
+	.analyse {
+		margin-top: 2rem;
+		margin-left: 2rem;
+		display: flex;
+		align-items: flex-start;
+		flex-wrap: nowrap;
+		flex-direction: row;
+		justify-content: center;
+		box-sizing: border-box;
+	}
+
+	.center-container {
+		margin: 0px;
+	}
+
+	.sales, .visitors, .sales_ {
+		width: 100%;
+		margin: 0;
+		border-radius: 15px;
+		padding: 10px;
+		margin-bottom: 10px;
+		margin-right: 10px;
+		cursor: pointer;
+		box-shadow: var(--box-shadow);
+		transition: all 0.4s ease;
+	}
+
+	.sales:hover {
+		padding-bottom: 15px;
+		box-shadow: var(--red-shadow);
+		color: var(--color-white);
+	}
+
+	.visitors:hover {
+		color: var(--color-white);
+		padding-bottom: 15px;
+		box-shadow: var(--blue-shadow);
+	}
+
+	.sales_:hover {
+		color: var(--color-white);
+		padding-bottom: 15px;
+		box-shadow: var(--green-shadow);
+	}
+
+	.sales {
+		background: var(--red-gradient);
+	}
+
+	.visitors {
+		background: var(--blue-gradient);
+	}
+
+	.sales_ {
+		background: var(--green-gradient);
+	}
+
+	.status > .info > h1 {
+		margin-top: 10px;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.analyse {
+		margin-top: 2rem;
+		display: flex;
+		justify-content: center;
+		text-align: center;
+	}
+
+
+}
