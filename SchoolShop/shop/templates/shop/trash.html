@@ -40,6 +40,10 @@
 					</div>
 					{% endfor %}
 				</div>
+				<div class="sum-price">
+					<h2>Сумма: {{request.user.trash.sum_price}} ₽</h2>
+					<a href="/trash/pay" class="pay-button">Оплатить</a>
+				</div>
 			</div>
 			{% else %}
 				<div class="empty_trash">

@@ -58,3 +58,9 @@ get_search = () => {
 		document.getElementById('search_results').style.display = 'none'
 	}
 }
+
+jQuery(window).scroll(function() {
+	if(jQuery(window).scrollTop()+jQuery(window).height()>=jQuery(document).height()){
+		console.log('end')
+	}
+});

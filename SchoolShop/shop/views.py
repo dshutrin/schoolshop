@@ -38,7 +38,7 @@ def home(request):
 	return render(request, 'shop/home.html', {
 		'form': MainSearchForm(),
 		'liked_products': m_liked,
-		'products': products[:10]
+		'products': products[:12]
 	})
 
 
