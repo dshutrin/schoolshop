@@ -1,11 +1,6 @@
 {% extends "shop/base.html" %}
 {% load static %}
 
-{% block head %}
-	<link rel="stylesheet" href="{% static 'css/home.css' %}">
-{% endblock %}
-
-
 {% block content %}
 <form method="GET">
 	{{form.query}}
@@ -24,7 +19,7 @@
 
 		<div class="main_block_handler">
 			<h1 class="title">Каталог</h1>
-			<div class="main_block">
+			<div id="js_main_block" class="main_block">
 				{% for product in products %}
 					<a class="card" href="/product/{{product.product.id}}">
 						<table>
@@ -35,9 +30,14 @@
 							<tr>
 								<td><span class="desc">{{product.product.name}}</span><br></td>
 							</tr>
-							<tr class="last">
+							<tr>
 								<td><span class="price">{{product.product.price}} ₽</span></td>
 							</tr>
+							{% if product.in_trash %}
+							<tr class="last">
+								<td><span class="in_trash">Уже в корзине</span></td>
+							</tr>
+							{% endif %}
 							</tbody>
 						</table>
 					</a>
@@ -85,6 +85,14 @@
 		document.getElementById("profile").classList.remove("active");
 		document.getElementById("admin_panel").classList.remove("active");
 	}
+
+	let global_locker = false;
+
+	let ids = [
+		{% for product in products %}
+			{{product.product.id}},
+		{% endfor %}
+	];
 </script>
 
 {% endblock %}

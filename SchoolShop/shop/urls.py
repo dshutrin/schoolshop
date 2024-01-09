@@ -16,6 +16,7 @@ urlpatterns = [
 	# API
 	path('search/<str:query>', search),
 	path('search_cat/<str:query>', search_cat),
-	path('search_on_cat/<int:cat_id>/<str:query>', search_on_cat)
+	path('search_on_cat/<int:cat_id>/<str:query>', search_on_cat),
+	path('get_products/<str:ids>', load_products)
 ]
 

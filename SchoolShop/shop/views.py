@@ -1,14 +1,17 @@
 from django.shortcuts import render
-from django.http import JsonResponse, HttpResponseRedirect
+from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
 from .forms import *
 from .models import *
 from random import shuffle
 
+import re
+
 
 class ProductView:
-	def __init__(self, product, images):
+	def __init__(self, user, product, images):
 		self.product = product
 		self.img = images
+		self.in_trash = product.id in user.trash.trash_prod_ids()
 
 
 class CatView:
@@ -31,7 +34,7 @@ def home(request):
 	all_products = Product.objects.all()
 	for product in all_products:
 		product_img = [x for x in products_imgs if x.product == product][0]
-		products.append(ProductView(product, product_img))
+		products.append(ProductView(request.user, product, product_img))
 	m_liked = sorted(products, key=lambda x: x.product.views)[::-1][:5]
 	shuffle(products)
 
@@ -75,7 +78,7 @@ def cat_detail(request, cat_id):
 
 	for product in Product.objects.filter(category__id=cat_id):
 		product_img = ProductImage.objects.filter(product=product)[0]
-		products.append(ProductView(product, product_img))
+		products.append(ProductView(request.user, product, product_img))
 	shuffle(products)
 
 	return render(request, 'shop/cat_detail.html', {
@@ -96,7 +99,9 @@ def product_detail(request, pid):
 
 		if len(image):
 			return render(request, 'shop/product_detail.html', {
-				'product': ProductView(product=product, images=image)
+				'product': ProductView(
+					user=request.user, product=product, images=image
+				)
 			})
 		else:
 			return HttpResponseRedirect('/')
@@ -130,7 +135,7 @@ def trash(request):
 	products_imgs = ProductImage.objects.all()
 	for product in all_products:
 		product_img = [x for x in products_imgs if x.product == product][0]
-		products.append(ProductView(product, product_img))
+		products.append(ProductView(request.user, product, product_img))
 
 	filled = len(products) > 0
 
@@ -150,3 +155,26 @@ def drop_from_trash(request, pid):
 
 	else:
 		return HttpResponseRedirect('/')
+
+
+def load_products(request, ids):
+	products = Product.objects.all()
+	products_imgs = ProductImage.objects.all()
+	ids = [int(x) for x in re.findall(r'-(\d+)', ids)]
+
+	products = [x for x in products if x.id not in ids]
+	shuffle(products)
+	ans = {'products': []}
+
+	for p in products:
+		product_img = [x for x in products_imgs if x.product == p][0]
+		js = p.to_json()
+		in_trash = p.id in request.user.trash.trash_prod_ids()
+		js.update({
+			'img': product_img.image.url,
+			'in_trash': in_trash
+		})
+		ans['products'].append(js)
+
+	ans['products'] = ans['products'][:12]
+	return JsonResponse(ans)

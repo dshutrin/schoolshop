@@ -6,7 +6,14 @@
 	appearance: 0;
 	text-decoration: none;
 	box-sizing: border-box;
-	font-family: "Poppins", sans-serif;
+}
+
+.in_trash {
+	background-color: var(--color-success);
+	padding: 7px 15px;
+	border-radius: var(--button-radius);
+	margin-top: 30px;
+	color: var(--color-white);
 }
 
 a,
@@ -31,6 +38,10 @@ body {
 	max-width: 100%;
 }
 
+.table {
+	height: 450px;
+}
+
 form {
 	max-height: 30px;
 }
@@ -51,7 +62,6 @@ form {
 	}
 
 	.sidebar {
-		width: 100%;
 		display: grid;
 		text-align: center;
 		justify-content: center;
@@ -350,12 +360,18 @@ form {
 
 	body {
 		width: 100vw;
-		height: 100vh;
 		font-size: 0.88rem;
 		user-select: none;
 		overflow-x: hidden;
 		color: var(--color-dark);
 		background-color: var(--color-background);
+	}
+
+	html {
+	height: 100%;
+	}
+	body {
+	  min-height: 100%;
 	}
 
 	.container {

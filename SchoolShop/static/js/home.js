@@ -59,8 +59,48 @@ get_search = () => {
 	}
 }
 
+
 jQuery(window).scroll(function() {
-	if(jQuery(window).scrollTop()+jQuery(window).height()>=jQuery(document).height()){
-		console.log('end')
+	let main = document.getElementById('id_main')
+
+	if(jQuery(window).scrollTop() + jQuery(window).height() >=
+		jQuery(document).height() - 15){
+
+		if (global_locker == false) {
+			global_locker = true
+
+			let query = "/get_products/";
+			if (ids.length > 0) {
+				for (let i=0; i<ids.length; i++)
+					query += `-${ids[i]}`
+			}
+			else {
+				query += `-`
+			}
+
+			let xhr = new XMLHttpRequest();
+
+			xhr.open('GET', query);
+			xhr.send();
+			xhr.responseType = 'json';
+
+			xhr.onload = () => {
+				let products = xhr.response['products']
+
+				let container = document.getElementById('js_main_block')
+
+				for (var i=0; i<products.length; i++){
+
+					ids.push(products[i].id)
+
+					container.innerHTML += create_product_card(
+						products[i].id, products[i].img, products[i].name, products[i].price
+					)
+
+				}
+			}
+
+			global_locker = false
+		}
 	}
 });
